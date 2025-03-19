@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <head>
+    </head>
+    <body>
+             <div id="container">
+        <div id="color-flipper">Color Flipper</div>
+              <div id="buttons-group">
+            <button id="blue-btn" onclick="changeBackgroundColorBlue()">Blue</button> <!-- Function "pass" (), is always empty. -->
+            <button id="green-btn" onclick="changeBackgroundColorGreen()">Green</button>
+            <button id="red-btn" onclick="changeBackgroundColorRed()">Red</button>
+            <button id="random-btn" onclick="randomColor()">Random</button>
+                     </div>
+
+                            </div>
+        
+</body>
+  <style>
+       
+        #color-flipper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 250px;
+            font-weight: bold;
+            font-size: 2rem;
+            
+            
+        }  
+
+        #buttons-group{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        #blue-btn{
+            background-color: blue;
+            color: white;
+            height: 50px;;
+            width: 125px;
+            font-weight: bold;
+        }
+
+        #blue-btn:hover{
+            cursor: pointer;
+        }
+
+
+        #green-btn{
+            background-color: green;
+            color: white;
+            height: 50px;
+            width: 125px;
+            font-weight: bold;
+        } 
+
+        #green-btn:hover{
+            cursor: pointer;
+        }
+
+        #red-btn{
+            background-color: red;
+            color: white;
+            height: 50px;
+            width: 125px;
+            font-weight: bold;
+        }
+
+        #red-btn:hover{
+            cursor: pointer
+        }
+
+        #random-btn{
+            background-image: linear-gradient(to right, blue, green, red, yellow, purple);
+            color: white;
+            height: 50px;
+            width: 125px;
+            font-weight: bold;
+        } 
+
+        #random-btn:hover{
+            cursor: pointer;
+        }
+ </style>
+
+  <script> 
+        /* For the random Button...
+           -Create a Variable called HexColorCode, assign it an empty string
+           -Create a for loop that runs 7 times, starting from 0 to 6, this will generate the hexcode.
+           -Create a variable that generates a random index, this will pick a random hexcode.
+           -Use math method to multiply hex number array using math.random
+           -Concatenate hex numbers & random index variable in hexcolor code.
+        */
+        let blueBtn = document.getElementById("blue-btn");
+        let greenBtn = document.getElementById("green-btn");
+        let redBtn = document.getElementById("red-btn");
+        let randomBtn = document.getElementById("random-btn"); 
+        
+         function changeBackgroundColorBlue(blue){
+            blueBtn.addEventListener("click", document.body.style.backgroundColor = "blue");
+        };
+
+        function changeBackgroundColorGreen(green){
+            greenBtn.addEventListener("click", document.body.style.backgroundColor = "green");
+        }; 
+
+        function changeBackgroundColorRed(red){
+            redBtn.addEventListener("click", document.body.style.backgroundColor = "red"); 
+        };
+
+        const body = document.getElementsByTagName("body")[0];
+
+        function setColor(name){
+            body.style.backgroundColor = name;
+        }
+
+        function randomColor(){
+            const blue = Math.round(Math.random() * 255);
+            const green = Math.round(Math.random() * 255);
+            const red = Math.round(Math.random() * 255);
+
+
+          const color = `rgb(${blue},${green},${red})` 
+            body.style.backgroundColor = color;
+        }
+
+        </script>
+
+</html>
